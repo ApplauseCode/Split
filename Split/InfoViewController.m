@@ -9,6 +9,7 @@
 #import "InfoViewController.h"
 
 @implementation InfoViewController
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,11 +33,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [scrollView setContentSize:CGSizeMake(400, 52)];
+    [scrollView setShowsHorizontalScrollIndicator:NO];
 }
 
 - (void)viewDidUnload
 {
+    [self setScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

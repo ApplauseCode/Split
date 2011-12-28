@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "InfoViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TimeParse : NSObject
 
@@ -96,7 +98,6 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - View lifecycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     return [self init];
@@ -152,24 +153,14 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    // The animation stopped if app is allowed to run in background
-    // So it has to be turned off in Splt-info.plist
-    // This is probably an apple bug.
-   /* [UIView animateWithDuration:90
-                          delay:0
-                        options:UIViewAnimationOptionRepeat |  UIViewAnimationOptionCurveLinear
-                     animations:^(void) {
-                         CGRect imageViewFrame = [[self background] frame];
-                         imageViewFrame.origin.x = 0;
-                         [[self background] setFrame:imageViewFrame];
-                     } completion:nil];
     CABasicAnimation *mover = [CABasicAnimation animationWithKeyPath:@"position"];
-    [mover setDuration:10];
+    [mover setDuration:120];
     [mover setRepeatCount:HUGE_VALF];
+    [mover setTimingFunction:[CAMediaTimingFunction 
+                              functionWithName:kCAMediaTimingFunctionLinear]];
     [mover setToValue:[NSValue valueWithCGPoint:CGPointMake(800, 208)]];
-    [[background layer] addAnimation:mover forKey:@"SlowMove"];*/
+    [[self.background layer] addAnimation:mover forKey:@"SlowMove"];
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -333,7 +324,8 @@
 
 - (IBAction)about:(id)sender 
 {
-    
+    InfoViewController *ivc = [[InfoViewController alloc] init];
+    [[self navigationController] pushViewController:ivc animated:YES];
 }
 
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface InfoViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

@@ -101,6 +101,7 @@
 				CE690FBA14AAADE2009BFEA5 /* geometry@2x.png */,
 				CE690FC214AAB370009BFEA5 /* convexity@2x.png */,
 				CE690FC014AAB326009BFEA5 /* alertme@2x.png */,
+				CE690FBC14AAAE54009BFEA5 /* drop@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -118,7 +119,6 @@
 		CEB0AB3C148D3FF50093F7C8 = {
 			isa = PBXGroup;
 			children = (
-				CE690FBC14AAAE54009BFEA5 /* drop@2x.png */,
 				CEB0AB51148D3FF50093F7C8 /* Split */,
 				CEA2FB4314AA7B9300370625 /* Xibs */,
 				CE690FB414AAA993009BFEA5 /* Images */,

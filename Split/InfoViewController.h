@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface InfoViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *drop;
+@property (weak, nonatomic) IBOutlet UIButton *geometryProof;
+@property (weak, nonatomic) IBOutlet UIButton *convexity;
+@property (weak, nonatomic) IBOutlet UIButton *alertMe;
+@property (weak, nonatomic) IBOutlet UIButton *portRowing;
+@property (weak, nonatomic) IBOutlet UIButton *faSchedule;
+
+- (IBAction)toAppStore:(id)sender;
 
 @end

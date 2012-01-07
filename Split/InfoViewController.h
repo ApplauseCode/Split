@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *geometryProof;
 @property (weak, nonatomic) IBOutlet UIButton *convexity;
 @property (weak, nonatomic) IBOutlet UIButton *alertMe;
-@property (weak, nonatomic) IBOutlet UIButton *portRowing;
 @property (weak, nonatomic) IBOutlet UIButton *faSchedule;
 
 - (IBAction)toAppStore:(id)sender;

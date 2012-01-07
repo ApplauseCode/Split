@@ -14,7 +14,6 @@
 @synthesize geometryProof;
 @synthesize convexity;
 @synthesize alertMe;
-@synthesize portRowing;
 @synthesize faSchedule;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,13 +49,35 @@
     [self setGeometryProof:nil];
     [self setConvexity:nil];
     [self setAlertMe:nil];
-    [self setPortRowing:nil];
     [self setFaSchedule:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    CGPoint dropCenter = [[self drop] center];
+    CGPoint geomCenter = [[self geometryProof] center];
+    CGPoint convCenter = [[self convexity] center];
+    CGPoint alerCenter = [[self alertMe] center];
+    CGPoint fascCenter = [[self faSchedule] center];
+    CGPoint startCenter = CGPointMake(-50, [drop center].y);
+    [drop setCenter:startCenter];
+    [geometryProof setCenter:startCenter];
+    [convexity setCenter:startCenter];
+    [alertMe setCenter:startCenter];
+    [faSchedule setCenter:startCenter];
+    [UIView animateWithDuration:.7 
+                          delay:0 
+                        options:UIViewAnimationOptionCurveEaseIn 
+                     animations:^{
+                         [drop setCenter:dropCenter];
+                         [geometryProof setCenter:geomCenter];
+                         [convexity setCenter:convCenter];
+                         [alertMe setCenter:alerCenter];
+                         [faSchedule setCenter:fascCenter];}                    
+                         completion:^(BOOL finished) {}];
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -71,6 +92,8 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/faschedule/id472827413?mt=8"]];
     else if (sender == geometryProof)
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/geometry-proof/id479753226?mt=8"]];
+    else if (sender == convexity)
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/us/app/convexity/id492001353?mt=8"]];
     else
         [alertView show];
 }

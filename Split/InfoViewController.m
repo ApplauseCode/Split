@@ -20,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [self setTitle:@"About"];
     }
     return self;
 }
@@ -38,6 +38,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *lbbi = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(done:)];
+    [[self navigationItem] setLeftBarButtonItem:lbbi];
     [scrollView setContentSize:CGSizeMake(480, 52)];
     [scrollView setShowsHorizontalScrollIndicator:NO];
 }
@@ -82,6 +84,9 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+- (void)done:(id)sender {
+    [[self navigationController] dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)toAppStore:(id)sender {

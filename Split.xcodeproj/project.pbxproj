@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9DE0205B14AAC05000EDE8D5 /* infobg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DE0205A14AAC05000EDE8D5 /* infobg@2x.png */; };
+		CE68E6A314B9041200FBC2BC /* Drop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE68E6A214B9041200FBC2BC /* Drop@2x.png */; };
 		CE690FB914AAAD94009BFEA5 /* faschedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE690FB814AAAD94009BFEA5 /* faschedule@2x.png */; };
 		CE690FBB14AAADE2009BFEA5 /* geometry@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE690FBA14AAADE2009BFEA5 /* geometry@2x.png */; };
-		CE690FBD14AAAE54009BFEA5 /* drop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE690FBC14AAAE54009BFEA5 /* drop@2x.png */; };
 		CE690FC114AAB326009BFEA5 /* alertme@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE690FC014AAB326009BFEA5 /* alertme@2x.png */; };
 		CE690FC314AAB370009BFEA5 /* convexity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE690FC214AAB370009BFEA5 /* convexity@2x.png */; };
 		CE956AAB149111300099A659 /* river5.png in Resources */ = {isa = PBXBuildFile; fileRef = CE956AAA149111300099A659 /* river5.png */; };
@@ -37,9 +37,9 @@
 
 /* Begin PBXFileReference section */
 		9DE0205A14AAC05000EDE8D5 /* infobg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infobg@2x.png"; sourceTree = "<group>"; };
+		CE68E6A214B9041200FBC2BC /* Drop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drop@2x.png"; sourceTree = "<group>"; };
 		CE690FB814AAAD94009BFEA5 /* faschedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faschedule@2x.png"; sourceTree = "<group>"; };
 		CE690FBA14AAADE2009BFEA5 /* geometry@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "geometry@2x.png"; sourceTree = "<group>"; };
-		CE690FBC14AAAE54009BFEA5 /* drop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drop@2x.png"; sourceTree = "<group>"; };
 		CE690FC014AAB326009BFEA5 /* alertme@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertme@2x.png"; sourceTree = "<group>"; };
 		CE690FC214AAB370009BFEA5 /* convexity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "convexity@2x.png"; sourceTree = "<group>"; };
 		CE956AAA149111300099A659 /* river5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = river5.png; path = Split/river5.png; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 				CE690FBA14AAADE2009BFEA5 /* geometry@2x.png */,
 				CE690FC214AAB370009BFEA5 /* convexity@2x.png */,
 				CE690FC014AAB326009BFEA5 /* alertme@2x.png */,
-				CE690FBC14AAAE54009BFEA5 /* drop@2x.png */,
+				CE68E6A214B9041200FBC2BC /* Drop@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -237,10 +237,10 @@
 				CEA2FB4814AA7BE000370625 /* InfoViewController.xib in Resources */,
 				CE690FB914AAAD94009BFEA5 /* faschedule@2x.png in Resources */,
 				CE690FBB14AAADE2009BFEA5 /* geometry@2x.png in Resources */,
-				CE690FBD14AAAE54009BFEA5 /* drop@2x.png in Resources */,
 				CE690FC114AAB326009BFEA5 /* alertme@2x.png in Resources */,
 				CE690FC314AAB370009BFEA5 /* convexity@2x.png in Resources */,
 				9DE0205B14AAC05000EDE8D5 /* infobg@2x.png in Resources */,
+				CE68E6A314B9041200FBC2BC /* Drop@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

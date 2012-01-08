@@ -63,6 +63,8 @@
 @property (nonatomic, assign) double distance;
 @property (nonatomic, assign) CGFloat yBottom;
 @property (nonatomic, weak) NSArray *bottom;
+@property (nonatomic, strong) CABasicAnimation *mover;
+
 
 - (void)calc;
 - (void)setControlsToDefaults;
@@ -92,6 +94,7 @@
 @synthesize yBottom;
 @synthesize bottom;
 @synthesize nibView;
+@synthesize mover;
 
 - (void)didReceiveMemoryWarning
 {
@@ -151,15 +154,26 @@
     [super viewDidUnload];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    CABasicAnimation *mover = [CABasicAnimation animationWithKeyPath:@"position"];
-    [mover setDuration:120];
-    [mover setRepeatCount:HUGE_VALF];
-    [mover setTimingFunction:[CAMediaTimingFunction 
-                              functionWithName:kCAMediaTimingFunctionLinear]];
-    [mover setToValue:[NSValue valueWithCGPoint:CGPointMake(800, 208)]];
-    [[self.background layer] addAnimation:mover forKey:@"SlowMove"];
+    CALayer *layer = [[self background] layer];
+    if (mover) {
+        CFTimeInterval pausedTime = [layer timeOffset];
+        layer.speed = 1.0;
+        layer.timeOffset = 0.0;
+        layer.beginTime = 0.0;
+        CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+        layer.beginTime = timeSincePause;
+    }
+    else {
+        mover = [CABasicAnimation animationWithKeyPath:@"position"];
+        [mover setDuration:120];
+        [mover setRepeatCount:HUGE_VALF];
+        [mover setTimingFunction:[CAMediaTimingFunction 
+                                  functionWithName:kCAMediaTimingFunctionLinear]];
+        [mover setToValue:[NSValue valueWithCGPoint:CGPointMake(800, 208)]];
+        [layer addAnimation:mover forKey:@"SlowMove"];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -325,7 +339,17 @@
 - (IBAction)about:(id)sender 
 {
     InfoViewController *ivc = [[InfoViewController alloc] init];
-    [[self navigationController] pushViewController:ivc animated:YES];
+    UINavigationController *infoNav = [[UINavigationController alloc] initWithRootViewController:ivc];
+    [[infoNav navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                             [UIColor colorWithRed:93/255.0 green:140/255.0 blue:214/255.0 alpha:1.0],
+                                                             UITextAttributeTextColor,
+                                                             [UIFont fontWithName:@"Georgia-Bold" size:22.0], UITextAttributeFont,
+                                                             nil]];
+    CALayer *layer = [[self background] layer];
+    CFTimeInterval pausedTime = [layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    layer.speed = 0.0;
+    layer.timeOffset = pausedTime;
+    [[self navigationController] presentModalViewController:infoNav animated:YES];
 }
 
 @end

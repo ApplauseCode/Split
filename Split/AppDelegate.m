@@ -24,7 +24,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     _navController = [[UINavigationController alloc] initWithRootViewController:_viewController];
-    [[_navController navigationBar] setBarStyle:UIBarStyleBlack];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [[_navController navigationBar] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor colorWithRed:93/255.0 green:140/255.0 blue:214/255.0 alpha:1.0],
                                                            UITextAttributeTextColor,

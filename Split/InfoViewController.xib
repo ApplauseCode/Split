@@ -87,7 +87,7 @@
 										</object>
 										<object class="NSCustomResource" key="IBUINormalImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">drop@2x.png</string>
+											<string key="NSResourceName">Drop@2x.png</string>
 										</object>
 										<object class="IBUIFontDescription" key="IBUIFontDescription" id="435239856">
 											<int key="type">2</int>
@@ -256,7 +256,6 @@
 										<string key="NSFrame">{{339, 51}, {52, 30}}</string>
 										<reference key="NSSuperview" ref="624291917"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:328</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -705,9 +704,9 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="Drop@2x.png">{114, 114}</string>
 			<string key="alertme@2x.png">{114, 114}</string>
 			<string key="convexity@2x.png">{114, 114}</string>
-			<string key="drop@2x.png">{114, 114}</string>
 			<string key="faschedule@2x.png">{114, 114}</string>
 			<string key="geometry@2x.png">{114, 114}</string>
 			<string key="infobg@2x.png">{640, 960}</string>

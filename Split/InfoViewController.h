@@ -10,6 +10,7 @@
 
 @interface InfoViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *fullScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *drop;
 @property (weak, nonatomic) IBOutlet UIButton *geometryProof;

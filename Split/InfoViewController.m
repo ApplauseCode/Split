@@ -9,6 +9,7 @@
 #import "InfoViewController.h"
 
 @implementation InfoViewController
+@synthesize fullScrollView;
 @synthesize scrollView;
 @synthesize drop;
 @synthesize geometryProof;
@@ -42,6 +43,7 @@
     [[self navigationItem] setLeftBarButtonItem:lbbi];
     [scrollView setContentSize:CGSizeMake(480, 52)];
     [scrollView setShowsHorizontalScrollIndicator:NO];
+    [fullScrollView setContentSize:CGSizeMake(320, 600)];
 }
 
 - (void)viewDidUnload
@@ -52,6 +54,7 @@
     [self setConvexity:nil];
     [self setAlertMe:nil];
     [self setFaSchedule:nil];
+    [self setFullScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

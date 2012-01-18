@@ -17,7 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *convexity;
 @property (weak, nonatomic) IBOutlet UIButton *alertMe;
 @property (weak, nonatomic) IBOutlet UIButton *faSchedule;
+@property (weak, nonatomic) IBOutlet UIButton *twitter;
+@property (weak, nonatomic) IBOutlet UIButton *website;
 
-- (IBAction)toAppStore:(id)sender;
+- (IBAction)toURL:(id)sender;
 
 @end

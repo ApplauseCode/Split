@@ -32,5 +32,6 @@
 - (IBAction)splitStepChanged:(id)sender;
 - (IBAction)distStepChanged:(id)sender;
 - (IBAction)timeStepChanged:(id)sender;
+- (IBAction)done:(id)sender;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 @class ViewController;
 
@@ -15,5 +17,5 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController * navController;
 @property (strong, nonatomic) ViewController *viewController;
-
+@property (nonatomic) BOOL isInfoViewVisible;
 @end

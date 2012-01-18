@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import <QuartzCore/QuartzCore.h>
 
 
 @implementation AppDelegate
@@ -17,6 +16,7 @@
 @synthesize window = _window;
 @synthesize navController = _navController;
 @synthesize viewController = _viewController;
+@synthesize isInfoViewVisible;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -32,6 +32,7 @@
                                                            nil]];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
+    [self setIsInfoViewVisible:NO];
     return YES;
 }
 
@@ -40,20 +41,5 @@
     [[[_viewController background] layer] removeAllAnimations];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    CABasicAnimation *mover = [CABasicAnimation animationWithKeyPath:@"position"];
-    [mover setDuration:120];
-    [mover setRepeatCount:HUGE_VALF];
-    [mover setTimingFunction:[CAMediaTimingFunction 
-                        functionWithName:kCAMediaTimingFunctionLinear]];
-    [mover setToValue:[NSValue valueWithCGPoint:CGPointMake(800, 208)]];
-    [[_viewController.background layer] addAnimation:mover forKey:@"SlowMove"];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [[[_viewController background] layer] removeAllAnimations];
-}
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "InfoViewController.h"
+#import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TimeParse : NSObject
@@ -126,12 +127,20 @@
     [[self navigationItem] setLeftBarButtonItem:infoItem];
     UIBarButtonItem *help = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStylePlain target:self action:@selector(help:)];     
     [[self navigationItem] setRightBarButtonItem:help];
-    //[self distCalc:nil];
-    //[self timeCalc:nil];
-    //[self splitCalc:nil];
     [timeButton setSelected:YES];
     [self setYBottom:[timeField frame].origin.y];
     [self setBottom:timeControls];
+    mover = [CABasicAnimation animationWithKeyPath:@"position"];
+    [mover setDuration:120];
+    [mover setRepeatCount:HUGE_VALF];
+    [mover setTimingFunction:[CAMediaTimingFunction 
+                              functionWithName:kCAMediaTimingFunctionLinear]];
+    [mover setToValue:[NSValue valueWithCGPoint:CGPointMake(800, 208)]];
+    [[[self background] layer] addAnimation:mover forKey:@"SlowMove"];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(handleWillEnterForeground:) 
+                                                 name: UIApplicationWillEnterForegroundNotification
+                                               object: nil];
 }
 
 - (void)viewDidUnload
@@ -151,29 +160,31 @@
     [self setDistControls:nil];
     [self setDistControls:nil];
     [self setTimeControls:nil];
+    [self setMover:nil];
     [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     CALayer *layer = [[self background] layer];
-    if (mover) {
-        CFTimeInterval pausedTime = [layer timeOffset];
-        layer.speed = 1.0;
-        layer.timeOffset = 0.0;
-        layer.beginTime = 0.0;
-        CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
-        layer.beginTime = timeSincePause;
-    }
-    else {
-        mover = [CABasicAnimation animationWithKeyPath:@"position"];
-        [mover setDuration:120];
-        [mover setRepeatCount:HUGE_VALF];
-        [mover setTimingFunction:[CAMediaTimingFunction 
-                                  functionWithName:kCAMediaTimingFunctionLinear]];
-        [mover setToValue:[NSValue valueWithCGPoint:CGPointMake(800, 208)]];
-        [layer addAnimation:mover forKey:@"SlowMove"];
-    }
+    CFTimeInterval pausedTime = [layer timeOffset];
+    layer.speed = 1.0;
+    layer.timeOffset = 0.0;
+    layer.beginTime = 0.0;
+    CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+    layer.beginTime = timeSincePause;
+}
+
+-(void) handleWillEnterForeground:(id)sender
+{
+    [[[self background] layer] removeAllAnimations];
+    mover = [CABasicAnimation animationWithKeyPath:@"position"];
+    [mover setDuration:120];
+    [mover setRepeatCount:HUGE_VALF];
+    [mover setTimingFunction:[CAMediaTimingFunction 
+                              functionWithName:kCAMediaTimingFunctionLinear]];
+    [mover setToValue:[NSValue valueWithCGPoint:CGPointMake(800, 208)]];
+    [[[self background] layer] addAnimation:mover forKey:@"SlowMove"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -329,7 +340,7 @@
     [[self navigationItem] setRightBarButtonItem:help];
 }
 
-- (void)done:(id)sender
+- (IBAction)done:(id)sender
 {
     [nibView removeFromSuperview];
     UIBarButtonItem *help = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStylePlain target:self action:@selector(help:)];     

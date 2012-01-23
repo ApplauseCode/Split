@@ -39,6 +39,7 @@
 		CEB0AB8E148FBC8D0093F7C8 /* blue_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB0AB8A148FBC8D0093F7C8 /* blue_button.png */; };
 		CEB0AB8F148FBC8D0093F7C8 /* blue_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB0AB8B148FBC8D0093F7C8 /* blue_button@2x.png */; };
 		CEC2260614C6655000B61D1F /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC2260514C6655000B61D1F /* info@2x.png */; };
+		CEDCA10B14CCEF93001013B3 /* overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDCA10A14CCEF93001013B3 /* overlay.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		CEB0AB8A148FBC8D0093F7C8 /* blue_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue_button.png; path = Split/blue_button.png; sourceTree = "<group>"; };
 		CEB0AB8B148FBC8D0093F7C8 /* blue_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue_button@2x.png"; path = "Split/blue_button@2x.png"; sourceTree = "<group>"; };
 		CEC2260514C6655000B61D1F /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		CEDCA10A14CCEF93001013B3 /* overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = overlay.png; path = Split/overlay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				CEB0AB8A148FBC8D0093F7C8 /* blue_button.png */,
 				CEB0AB8B148FBC8D0093F7C8 /* blue_button@2x.png */,
 				CE956AAA149111300099A659 /* river5.png */,
+				CEDCA10A14CCEF93001013B3 /* overlay.png */,
 				CEA4C1B014958FE900F818FC /* overlay@2x.png */,
 				CEB0AB7C148F23110093F7C8 /* logo.png */,
 				CEB0AB7A148F22FF0093F7C8 /* logo@2x.png */,
@@ -265,6 +268,7 @@
 				CE68E6B514BA2B8E00FBC2BC /* ContactButton.png in Resources */,
 				CE68E6B614BA2B8E00FBC2BC /* ContactButton@2x.png in Resources */,
 				CEC2260614C6655000B61D1F /* info@2x.png in Resources */,
+				CEDCA10B14CCEF93001013B3 /* overlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,7 +340,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -345,6 +350,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
